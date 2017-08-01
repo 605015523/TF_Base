@@ -1,4 +1,4 @@
-# ahahaha
+# mysql sql script
 
 CREATE TABLE `tfbase`.`tf_roles` (
   `role_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
