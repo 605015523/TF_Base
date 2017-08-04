@@ -39,28 +39,29 @@ class TfRoles(models.Model):
     role_id = models.AutoField(primary_key=True)
     name_en = models.CharField(unique=True, max_length=60)
     name_ch = models.CharField(max_length=60, blank=True, null=True)
-    memo = models.TextField(blank=True, null=True)
+    type = models.CharField(max_length=20, blank=True, null=True)
     series = models.CharField(max_length=20, blank=True, null=True)
+    memo = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'tf_roles'
 
     def __str__(self):
-        return self.name_en + ' -- ' + self.name_ch
+        return str(self.role_id) + ' : ' +self.name_en + ' -- ' + self.name_ch
 
 class TfStory(models.Model):
     story_id = models.AutoField(primary_key=True)
     external_id = models.IntegerField()
-    story = models.TextField(blank=True, null=True)
     number = models.IntegerField(blank=True, null=True)
+    story = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'tf_story'
 
     def __str__(self):
-        return self.story_id
+        return "TF Role Id - " + str(self.story_id) + " - with order is  " + str(self.number)
 
 
 class TfToys(models.Model):
