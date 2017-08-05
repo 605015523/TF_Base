@@ -1,25 +1,18 @@
-<!doctype html>
-<html>
-<head>
-	<meta charset='utf-8'>
-	<title> TF BASE</title>
-	
-</head>
 
-<body>
-<h1> 欢迎光临  </h1>
-<hr>
+{% extends 'wiki/template_base.html' %}
 
-{% for role in roles %}
-<p>
-	<a href='role/{{role.role_id}}'>{{ role.name_en }} -- {{role.name_ch}} -- {{ role.type}} -- {{ role.series }} </a>
-</p>
+{% block item_head %}
+	<h1> 资料列表  </h1>
+	<hr>
+{% endblock %}
 
-{% endfor %}
+{% block item_content %}
 
-<hr>
+	{% for role in roles %}
+		<p>
+			<a href='role/{{role.role_id}}'>{{role.name_ch}} -- {{ role.type}} -- {{ role.series }} </a>
+		</p>
+		<hr>
+	{% endfor %}
 
-<h3>  {{now}}</h3>
-</body>
-
-</html>
+{% endblock %}

@@ -16,8 +16,8 @@ def wiki_index(request):
 def show_content(request, role_id):
     template = get_template("wiki/detail.html")
     try:
-        story = TfStory.objects.get(external_id=role_id)
-        if story != None:
+        stories = TfStory.objects.filter(external_id=role_id)
+        if stories != None:
             html = template.render(locals())
             return HttpResponse(html)
     except:
