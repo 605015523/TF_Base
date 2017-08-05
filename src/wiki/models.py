@@ -54,6 +54,7 @@ class TfStory(models.Model):
     story_id = models.AutoField(primary_key=True)
     external_id = models.IntegerField()
     number = models.IntegerField(blank=True, null=True)
+    title = models.CharField(max_length=40, blank=True, null=True)
     story = models.TextField(blank=True, null=True)
 
     class Meta:
@@ -61,7 +62,7 @@ class TfStory(models.Model):
         db_table = 'tf_story'
 
     def __str__(self):
-        return "TF Role Id - " + str(self.story_id) + " - with order is  " + str(self.number)
+        return "TF Story Title: " + self.title
 
 
 class TfToys(models.Model):

@@ -9,7 +9,14 @@
 <body>
 <h1> 欢迎光临  </h1>
 <hr>
-{{ roles }}
+
+{% for role in roles %}
+<p>
+	<a href='role/{{role.role_id}}'>{{ role.name_en }} -- {{role.name_ch}} -- {{ role.type}} -- {{ role.series }} </a>
+</p>
+
+{% endfor %}
+
 <hr>
 
 <h3>  {{now}}</h3>

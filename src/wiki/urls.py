@@ -17,12 +17,12 @@ Including another URLconf
 
 from django.conf.urls import url
 from django.contrib import admin
-from .views import wiki_index
+from .views import wiki_index, show_content
 
 
 urlpatterns = [
 
     url(r'^$', wiki_index),
-    
+    url(r'^role/(\w+)$', show_content)
     
 ]
